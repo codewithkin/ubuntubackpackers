@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="flex flex-col gap-4 items-center py-12 px-4 md:px-48">
       <article className="flex flex-col gap-2">
-        <h2 className="text-5xl lg:text-7xl font-regular">
+        <h2 className="text-5xl lg:text-8xl font-regular">
           Where culture, comfort, and adventure meet
         </h2>
         <p className="text-slate-600">
