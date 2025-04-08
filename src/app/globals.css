@@ -76,6 +76,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+@layer components {
+  .section {
+    @apply md:px-20 md:py-40 px-4 py-10
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
