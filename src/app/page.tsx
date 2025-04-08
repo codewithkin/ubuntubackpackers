@@ -3,6 +3,7 @@ import OurRooms from "@/components/home/OurRooms";
 import Restaurant from "@/components/home/Restaurant";
 import RoomImage from "@/components/home/RoomImage";
 import Testimonials from "@/components/home/Testimonials";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <OurRooms />
       <Restaurant />
       <Testimonials />
+      <WhyChooseUs />
     </main>
   );
 }
