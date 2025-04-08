@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/reusable/Navbar";
 import MobileNavbarSheet from "@/components/reusable/MobileNavbarSheet";
+import Footer from "@/components/reusable/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
         <MobileNavbarSheet />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
