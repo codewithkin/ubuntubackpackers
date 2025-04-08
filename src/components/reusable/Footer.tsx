@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import Link from "next/link";
+import { toast } from "sonner";  // Import Sonner's toast function
 
 const Footer = () => {
+  const [isSubscribed, setIsSubscribed] = useState(false);  // State to track subscription status
+
+  // Handle form submission
+  const handleSubscribe = (e: any) => {
+    e.preventDefault();  // Prevent default form submission
+    toast.success("You are in the waitlist!");  // Show success toast
+    setIsSubscribed(true);  // Update subscription status to true
+  };
+
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-6 sm:px-12">
@@ -30,24 +41,24 @@ const Footer = () => {
             <CardContent>
               <ul>
                 <li>
-                  <a href="#rooms" className="hover:text-gray-400">
+                  <Link href="#rooms" className="hover:text-gray-400">
                     Rooms
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-gray-400">
+                  <Link href="#about" className="hover:text-gray-400">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-gray-400">
+                  <Link href="#contact" className="hover:text-gray-400">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#explore" className="hover:text-gray-400">
+                  <Link href="#explore" className="hover:text-gray-400">
                     Explore
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </CardContent>
@@ -60,34 +71,18 @@ const Footer = () => {
             </CardHeader>
             <CardContent>
               <div className="flex space-x-4">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                   <FaFacebook className="text-2xl hover:text-blue-600" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                </Link>
+                <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="text-2xl hover:text-pink-600" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                </Link>
+                <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                   <FaTwitter className="text-2xl hover:text-blue-400" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                </Link>
+                <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="text-2xl hover:text-blue-700" />
-                </a>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -103,17 +98,25 @@ const Footer = () => {
               <p className="mb-4">
                 Stay updated with our latest news, special offers, and more!
               </p>
-              <form action="#" method="POST" className="flex space-x-4">
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="w-full"
-                />
-                <Button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
-                  Subscribe
-                </Button>
-              </form>
+              {isSubscribed ? (
+                <p className="text-green-600 font-semibold">You are in the waitlist!</p>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex space-x-4">
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    className="w-full"
+                    required
+                  />
+                  <Button
+                    type="submit"
+                    className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700"
+                  >
+                    Subscribe
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>
