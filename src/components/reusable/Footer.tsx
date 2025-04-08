@@ -42,7 +42,7 @@ const Footer = () => {
             <CardContent>
               <ul>
                 <li>
-                  <Link href="#rooms" className="hover:text-gray-400">
+                  <Link href="/rooms" className="hover:text-gray-400">
                     Rooms
                   </Link>
                 </li>
