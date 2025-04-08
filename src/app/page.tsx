@@ -1,3 +1,4 @@
+import CallToAction from "@/components/home/CallToAction";
 import Header from "@/components/home/Header";
 import OurRooms from "@/components/home/OurRooms";
 import Restaurant from "@/components/home/Restaurant";
@@ -14,6 +15,7 @@ export default function Home() {
       <Restaurant />
       <Testimonials />
       <WhyChooseUs />
+      <CallToAction />
     </main>
   );
 }
