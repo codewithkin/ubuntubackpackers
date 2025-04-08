@@ -1,4 +1,5 @@
 import Header from "@/components/home/Header";
+import OurRooms from "@/components/home/OurRooms";
 import RoomImage from "@/components/home/RoomImage";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Header />
       <RoomImage />
+      <OurRooms />
     </main>
   );
 }
