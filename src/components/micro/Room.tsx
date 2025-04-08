@@ -19,11 +19,11 @@ function Room({ room }: { room: RoomType }) {
 
       {/* Amenities */}
       <article className="flex gap-2 items-center flex-wrap overflow-x-auto w-full">
-        {
-            room.amenities.map((amenity: string) => (
-                <Badge key={amenity} variant="outline">{amenity}</Badge>
-            ))
-        }
+        {room.amenities.map((amenity: string) => (
+          <Badge key={amenity} variant="outline">
+            {amenity}
+          </Badge>
+        ))}
       </article>
 
       {/* Room metadata */}
@@ -39,19 +39,34 @@ function Room({ room }: { room: RoomType }) {
         <p className="text-slate-700">{room.description}</p>
 
         <article className="my-2 flex text-slate-500 gap-4 text-sm">
-          <p className="flex gap-1 items-center"><Bed size={18} /><span>{room.beds} beds</span></p>
-          <p className="flex gap-1 items-center"><PersonStandingIcon size={18} /><span>{room.people} people</span></p>
-          <p className="flex gap-1 items-center"><Ruler size={18} /><span>{room.size} m<sup>2</sup></span></p>
+          <p className="flex gap-1 items-center">
+            <Bed size={18} />
+            <span>{room.beds} beds</span>
+          </p>
+          <p className="flex gap-1 items-center">
+            <PersonStandingIcon size={18} />
+            <span>{room.people} people</span>
+          </p>
+          <p className="flex gap-1 items-center">
+            <Ruler size={18} />
+            <span>
+              {room.size} m<sup>2</sup>
+            </span>
+          </p>
         </article>
       </article>
 
-        {/* CTA */}     
-        <Button className="self-start hover:gap-4 flex gap-2 transition-all duration-300" variant="secondary" asChild >
-            <Link href={`/rooms/${room.name.split("").join('')}`}>
-            <span>Book {room.name}</span>
-            <ArrowRight />
-            </Link>
-        </Button>
+      {/* CTA */}
+      <Button
+        className="self-start hover:gap-4 flex gap-2 transition-all duration-300"
+        variant="secondary"
+        asChild
+      >
+        <Link href={`/rooms/${room.name.split("").join("")}`}>
+          <span>Book {room.name}</span>
+          <ArrowRight />
+        </Link>
+      </Button>
     </article>
   );
 }
