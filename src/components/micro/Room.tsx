@@ -21,7 +21,7 @@ function Room({ room }: { room: RoomType }) {
       <article className="flex gap-2 items-center flex-wrap overflow-x-auto w-full">
         {
             room.amenities.map((amenity: string) => (
-                <Badge variant="outline">{amenity}</Badge>
+                <Badge key={amenity} variant="outline">{amenity}</Badge>
             ))
         }
       </article>
