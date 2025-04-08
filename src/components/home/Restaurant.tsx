@@ -43,7 +43,7 @@ function Restaurant() {
   return (
     <section className="section">
       <article className="grid md:grid-cols-2 gap-4">
-        <article className="bg-gold rounded-lg p-8 justify-between flex flex-col h-full w-full">
+        <article className="bg-gold rounded-lg p-8 justify-between flex flex-col h-full w-full gap-4">
           <article className="flex flex-col items-center h-full">
             <h2 className="heading">Restaurant at Ubuntu Backpackers</h2>
             <p className="text-slate-500">
@@ -61,8 +61,8 @@ function Restaurant() {
         </article>
         {/* Food images carousel */}
         <article className="w-full h-full md:col-span-1">
-          <Carousel className="w-full max-h-[400px]">
-            <CarouselContent>
+          <Carousel className="w-full md:max-h-[400px] overflow-x-auto md:overflow-x-hidden">
+            <CarouselContent className="w-full">
               {dishes.map((dish, index) => (
                 <CarouselItem key={index}>
                   <Image
@@ -70,7 +70,7 @@ function Restaurant() {
                     width={1000}
                     height={300}
                     src={dish.image}
-                     className="h-fit min-w-full rounded-sm object-cover max-h-full md:max-h-[400px]"
+                    className="h-fit min-w-full rounded-sm object-cover md:max-h-[400px]"
                   />
                 </CarouselItem>
               ))}
